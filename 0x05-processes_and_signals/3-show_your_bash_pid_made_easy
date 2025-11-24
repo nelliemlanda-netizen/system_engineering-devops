@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Display PID and full path of all processes whose name contains 'bash'
+# Display the PID and full path of all bash processes using ps
 ps -eo pid= | while read -r pid; do
-    exe_path=$(readlink -f /proc/"$pid"/exe 2>/dev/null)
-    if [[ "$exe_path" == *bash ]]; then
+    exe_path=$(readlink -f "/proc/$pid/exe" 2>/dev/null)
+    if [[ "$exe_path" == */bash ]]; then
         echo "$pid $exe_path"
     fi
 done
