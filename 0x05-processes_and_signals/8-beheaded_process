@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-# Force kill (SIGKILL) the 7-highlander process using kill -9
-pids=$(pgrep -f '7-highlander') || exit 0
-kill -9 "$pids" 2>/dev/null || true
-"OK", end="
+#!/bin/bash
+pkill -f 7-highlander
+echo "OK"
