@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
-# Display the PID and executable path of all bash processes
-ps -eo pid=,comm= | grep '[b]ash' | while read -r pid cmd; do
-    echo "$pid /bin/bash"
-done
+# Display the PID and executable path of all bash processes using ps
+ps -eo pid=,comm= | grep '[b]ash' | awk '{print $1 " /bin/bash"}'
