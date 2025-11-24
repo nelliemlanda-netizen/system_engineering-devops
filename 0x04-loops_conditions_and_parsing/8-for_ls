@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
-# This script lists files and prints the name after the first dash
-for item in $(ls | grep -v "^\.")
-do
+# This script displays the part of filenames after the first dash
+for item in *; do
+  # Skip hidden files
+  [ "$item" = "*" ] && exit 0     # if no files match
+  case "$item" in
+    .* ) continue ;;              # skip hidden files
+  esac
   echo "${item#*-}"
 done
