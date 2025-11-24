@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Find and kill processes named 4-to_infinity_and_beyond using kill
 pids=$(pgrep -f '4-to_infinity_and_beyond') || exit 0
-kill $pids 2>/dev/null || true
+kill "$pids" 2>/dev/null || true
