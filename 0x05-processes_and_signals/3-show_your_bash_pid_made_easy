@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Display the PID and full path of all processes whose name contains 'bash'
+# Display the PID and full path of all processes whose name contains '1 /bin/bash'
 pgrep -a bash | while read -r pid cmd; do
     echo "$pid $cmd"
 done
