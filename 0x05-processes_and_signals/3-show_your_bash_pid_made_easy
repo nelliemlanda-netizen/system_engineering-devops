@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# Display the PID and full command path of all processes whose name contains 'bash'
-ps -C bash -o pid= -o comm= | while read pid cmd; do
-    # Get full path of command
-    full_cmd=$(readlink -f /proc/"$pid"/exe 2>/dev/null)
-    echo "$pid $full_cmd"
+# Display PID and full path of all processes whose name contains 'bash'
+ps -C bash -o pid= | while read pid; do
+    full_path=$(readlink -f /proc/"$pid"/exe 2>/dev/null)
+    echo "$pid $full_path"
 done
