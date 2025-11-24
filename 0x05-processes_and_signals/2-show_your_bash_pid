@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Show only lines containing 'bash' from the full process list
-# shellcheck disable=SC2009
-ps auxf | grep bash
+# Display PID and full path of all processes whose name contains 'bash'
+ps -eo pid=,cmd= | grep '[b]ash' | awk '{print $1, $2}'
