@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Infinite loop that prints phrase every 2 seconds
+while true; do
+  printf '%s\n' "To infinity and beyond"
+  sleep 2
+done
