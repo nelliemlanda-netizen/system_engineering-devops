@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Show all processes (all users), include those without a TTY, in a user-friendly format and show hierarchy
+ps auxf
