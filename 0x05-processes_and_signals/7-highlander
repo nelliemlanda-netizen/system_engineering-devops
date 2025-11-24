@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Print phrase forever, but when receiving SIGTERM print "I am invincible!!!" and continue
-trap 'printf "%s\n" "I am invincible!!!"' SIGTERM
+# Infinite loop that reacts to SIGTERM by printing "I am invincible!!!"
+trap 'echo "I am invincible!!!"' SIGTERM
+
 while true; do
-  printf '%s\n' "To infinity and beyond"
+  echo "To infinity and beyond"
   sleep 2
 done
