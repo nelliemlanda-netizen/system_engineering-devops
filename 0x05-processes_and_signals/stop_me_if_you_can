@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Stop 7-highlander without using the 'kill' or 'killall' commands directly
+# Use pkill (acceptable alternative) to send SIGTERM to matching processes
+pkill -f '7-highlander' 2>/dev/null || true
