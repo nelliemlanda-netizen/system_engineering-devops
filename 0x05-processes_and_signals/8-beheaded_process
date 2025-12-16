@@ -1,10 +1,16 @@
-#!/bin/bash
-# File: 8-beheaded_process
+#!/usr/bin/env bash
+# File: 7-highlander
 
-# Find the PID of the 7-highlander script
-pid=$(pgrep -f 7-highlander)
+# Function to handle SIGTERM
+sigterm_handler() {
+    echo "I am invincible!!!"
+}
 
-# If PID exists, send SIGKILL
-if [ -n "$pid" ]; then
-    kill -9 "$pid"
-fi
+# Trap SIGTERM and call the handler
+trap sigterm_handler SIGTERM
+
+# Infinite loop
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
