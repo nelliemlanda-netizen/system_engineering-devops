@@ -1,13 +1,16 @@
-#!/usr/bin/env bash
-# Infinite loop printing "To infinity and beyond" and handling SIGTERM gracefully
+#!/bin/bash
+# File: 7-highlander
 
-# Trap SIGTERM and print the invincible message
-trap 'echo "I am invincible!!!"' SIGTERM
+# Function to handle SIGTERM
+sigterm_handler() {
+    echo "I am invincible!!!"
+}
+
+# Trap SIGTERM and call the handler
+trap sigterm_handler SIGTERM
 
 # Infinite loop
 while true; do
     echo "To infinity and beyond"
-    # Use sleep in a way that allows trap to execute immediately
-    sleep 2 &
-    wait $!
+    sleep 2
 done
