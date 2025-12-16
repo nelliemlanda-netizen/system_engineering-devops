@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 # Infinite loop printing "To infinity and beyond" and handling SIGTERM gracefully
 
-# Trap SIGTERM and print message
+# Trap SIGTERM and print the invincible message
 trap 'echo "I am invincible!!!"' SIGTERM
 
 # Infinite loop
 while true; do
     echo "To infinity and beyond"
-    sleep 2
+    # Use sleep in a way that allows trap to execute immediately
+    sleep 2 &
+    wait $!
 done
