@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
-# Sends SIGTERM to the 7-highlander process
+# Infinite loop that handles SIGTERM by printing a message instead of terminating
 
-# Find all PIDs of 7-highlander
-pids=$(pgrep -x 7-highlander)
+# Function to handle SIGTERM
+handle_sigterm() {
+    echo "I am invincible!!!"
+}
 
-# Send SIGTERM to each PID found
-for pid in $pids; do
-    kill -SIGTERM "$pid"
+# Trap SIGTERM and call handle_sigterm
+trap 'handle_sigterm' SIGTERM
+
+# Infinite loop
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
 done
