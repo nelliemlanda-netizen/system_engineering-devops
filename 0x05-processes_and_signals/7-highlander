@@ -1,15 +1,8 @@
-#!/bin/bash
-# File: 7-highlander
+#!/usr/bin/env bash
+# 7-highlander: infinite loop with SIGTERM handling
 
-# Function to handle SIGTERM
-sigterm_handler() {
-    echo "I am invincible!!!"
-}
+trap 'echo "I am invincible!!!"' SIGTERM
 
-# Trap SIGTERM and call the handler
-trap sigterm_handler SIGTERM
-
-# Infinite loop
 while true; do
     echo "To infinity and beyond"
     sleep 2
