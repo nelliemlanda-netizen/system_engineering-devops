@@ -1,7 +1,10 @@
-#!/usr/bin/env bash
-# Kill the 7-highlander process using SIGKILL
-pid=$(ps -eo pid=,comm= | grep '[7]-highlander' | awk '{print $1}')
-if [[ -n "$pid" ]]; then
+#!/bin/bash
+# File: 8-beheaded_process
+
+# Find the PID of the 7-highlander script
+pid=$(pgrep -f 7-highlander)
+
+# If PID exists, send SIGKILL
+if [ -n "$pid" ]; then
     kill -9 "$pid"
-    echo "OK"
 fi
