@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# 7-highlander: infinite loop with SIGTERM handling
+# 7-highlander: infinite loop script that handles SIGTERM gracefully
 
+# Trap SIGTERM and print message instead of terminating
 trap 'echo "I am invincible!!!"' SIGTERM
 
+# Infinite loop printing the message every 2 seconds
 while true; do
     echo "To infinity and beyond"
     sleep 2
