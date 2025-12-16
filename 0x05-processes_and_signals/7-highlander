@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-# Infinite loop that reacts to SIGTERM by printing "I am invincible!!!" and OK
-trap 'echo "I am invincible!!!"; echo "OK"' SIGTERM
+# Sends SIGTERM to the 7-highlander process
 
-while true; do
-  sleep 2
+# Find all PIDs of 7-highlander
+pids=$(pgrep -x 7-highlander)
+
+# Send SIGTERM to each PID found
+for pid in $pids; do
+    kill -SIGTERM "$pid"
 done
